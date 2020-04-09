@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$USER_HOME$/.Rider2019.3/system/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.Rider2019.3/system/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_Ally.-1472697469.00" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p="Ally.Core" t="IncludeRecursive">
+        <e p="Abstractions" t="Include">
+          <e p="IConfigurator.cs" t="Include" />
+        </e>
+        <e p="Ally.Core.csproj" t="IncludeRecursive" />
+        <e p="Class1.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="Ally.Core.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Ally.RabbitMQ" t="IncludeRecursive">
+        <e p="Abstractions" t="Include">
+          <e p="IRabbitMqConnection.cs" t="Include" />
+          <e p="IRabbitMqConsumer.cs" t="Include" />
+          <e p="IRabbitMqPublisher.cs" t="Include" />
+        </e>
+        <e p="Ally.RabbitMQ.csproj" t="IncludeRecursive" />
+        <e p="Extensions" t="Include">
+          <e p="ApplicationBuilderExtensions.cs" t="Include" />
+          <e p="ServiceCollectionExtensions.cs" t="Include" />
+        </e>
+        <e p="Options" t="Include">
+          <e p="RabbitMqConsumerOptions.cs" t="Include" />
+          <e p="RabbitMqPublisherOptions.cs" t="Include" />
+        </e>
+        <e p="RabbitMqConnection.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="Ally.RabbitMQ.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Ally.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
