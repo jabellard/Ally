@@ -6,6 +6,5 @@ namespace Ally.RabbitMQ.Options
     {
         public string Name { get; set; }
         public string Exchange { get; set; }
-        public Dictionary<string, object> Data { get; set; }
     }
 }

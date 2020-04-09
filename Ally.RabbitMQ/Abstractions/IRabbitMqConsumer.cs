@@ -4,6 +4,6 @@ namespace Ally.RabbitMQ.Abstractions
 {
     public interface IRabbitMqConsumer
     {
-        Task Start();
+        Task Consume();
     }
 }

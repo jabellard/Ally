@@ -31,9 +31,12 @@
           <e p="ServiceCollectionExtensions.cs" t="Include" />
         </e>
         <e p="Options" t="Include">
+          <e p="RabbitMqConnectionOptions.cs" t="Include" />
           <e p="RabbitMqConsumerOptions.cs" t="Include" />
+          <e p="RabbitMqOptions.cs" t="Include" />
           <e p="RabbitMqPublisherOptions.cs" t="Include" />
         </e>
+        <e p="RabbitMqConfigurator.cs" t="Include" />
         <e p="RabbitMqConnection.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">

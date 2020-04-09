@@ -8,6 +8,5 @@ namespace Ally.RabbitMQ.Options
         public string Queue { get; set; }
         public string Exchange { get; set; }
         public List<string> BindingKeys { get; set; }
-        public Dictionary<string, object> Data { get; set; }
     }
 }
