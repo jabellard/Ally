@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Transactions;
 using Ally.RabbitMQ.Abstractions;
 using Ally.RabbitMQ.Options;
 using Microsoft.Extensions.Configuration;
@@ -13,12 +12,15 @@ namespace Ally.RabbitMQ
     public class RabbitMqConfigurator
     {
         public IServiceCollection Services { get; private set; }
-        private List<RabbitMqConnectionOptions> ConnectionOptionsCollection { get; set; } = new List<RabbitMqConnectionOptions>();
-        private List<Tuple<Action<ConnectionFactory>, Func<RabbitMqConnectionOptions, bool>>> ConnectionOptionsConfigurations = new List<Tuple<Action<ConnectionFactory>, Func<RabbitMqConnectionOptions, bool>>>();
+        private readonly List<RabbitMqConnectionOptions> _connectionOptionsCollection;
+        private readonly List<Tuple<Action<ConnectionFactory>, Func<RabbitMqConnectionOptions, bool>>>
+            _connectionOptionsConfigurations;
 
         public RabbitMqConfigurator(IServiceCollection services)
         {
             Services = services;
+            _connectionOptionsCollection = new List<RabbitMqConnectionOptions>();
+            _connectionOptionsConfigurations = new List<Tuple<Action<ConnectionFactory>, Func<RabbitMqConnectionOptions, bool>>>();
         }
 
         public RabbitMqConfigurator FromConfiguration(IConfigurationSection configuration)
@@ -32,7 +34,7 @@ namespace Ally.RabbitMQ
             {
                 var connectionOptions = new RabbitMqConnectionOptions();
                 connectionConfiguration.Bind(connectionOptions);
-                ConnectionOptionsCollection.Add(connectionOptions);
+                _connectionOptionsCollection.Add(connectionOptions);
             }
 
             var publisherConfigurations = configuration
@@ -41,10 +43,8 @@ namespace Ally.RabbitMQ
                 .ToList();
 
             foreach (var publisherConfiguration in publisherConfigurations)
-            {
                 Services
                     .Configure<RabbitMqPublisherOptions>(publisherConfiguration[$"{nameof(RabbitMqPublisherOptions.Name)}"], publisherConfiguration);
-            }
             
             var consumerConfigurations = configuration
                 .GetSection($"{nameof(RabbitMqOptions.Consumers)}")
@@ -52,17 +52,15 @@ namespace Ally.RabbitMQ
                 .ToList();
             
             foreach (var consumerConfiguration in consumerConfigurations)
-            {
                 Services
                     .Configure<RabbitMqConsumerOptions>(consumerConfiguration[$"{nameof(RabbitMqConsumerOptions.Name)}"], consumerConfiguration);
-            }
 
             return this;
         }
 
         public RabbitMqConfigurator WithConnection(Action<ConnectionFactory> connectionConfigurator, Func<RabbitMqConnectionOptions, bool> connectionSelector)
         {
-            ConnectionOptionsConfigurations.Add(new Tuple<Action<ConnectionFactory>, Func<RabbitMqConnectionOptions, bool>>(connectionConfigurator, connectionSelector));
+            _connectionOptionsConfigurations.Add(new Tuple<Action<ConnectionFactory>, Func<RabbitMqConnectionOptions, bool>>(connectionConfigurator, connectionSelector));
             return this;
         }
 
@@ -94,23 +92,18 @@ namespace Ally.RabbitMQ
 
         public void Configure()
         {
-            // TODO: Takes O(N^2). Optimize.
-            foreach (var connectionOptions in ConnectionOptionsCollection)
+            foreach (var connectionOptions in _connectionOptionsCollection)
             {
-                foreach (var (connectionConfigurator, connectionSelector) in ConnectionOptionsConfigurations)
-                {
+                foreach (var (connectionConfigurator, connectionSelector) in _connectionOptionsConfigurations)
                     if (connectionSelector(connectionOptions))
-                    {
                         connectionConfigurator(connectionOptions.ConnectionFactory);
-                    }
-                    
-                    var rabbitMqConnection = new RabbitMqConnection
-                    {
-                        Name = connectionOptions.Name,
-                        Connection = connectionOptions.ConnectionFactory.CreateConnection()
-                    };
-                    Services.AddSingleton<IRabbitMqConnection>(f => rabbitMqConnection);
-                }
+                
+                var rabbitMqConnection = new RabbitMqConnection
+                {
+                    Name = connectionOptions.Name,
+                    Connection = connectionOptions.ConnectionFactory.CreateConnection()
+                };
+                Services.AddSingleton<IRabbitMqConnection>(f => rabbitMqConnection);
             }
         }
     }
