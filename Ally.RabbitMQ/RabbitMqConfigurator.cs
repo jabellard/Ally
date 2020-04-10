@@ -64,12 +64,49 @@ namespace Ally.RabbitMQ
             return this;
         }
 
+        public RabbitMqConfigurator WithSingletonPublisher<TPublisher>()
+            where TPublisher: IRabbitMqPublisher
+        {
+            return WithPublisher(typeof(TPublisher), ServiceLifetime.Singleton);
+        }
+        
+        public RabbitMqConfigurator WithScopedPublisher<TPublisher>()
+            where TPublisher: IRabbitMqPublisher
+        {
+            return WithPublisher(typeof(TPublisher), ServiceLifetime.Scoped);
+        }
+        
+        public RabbitMqConfigurator WithTransientPublisher<TPublisher>()
+            where TPublisher: IRabbitMqPublisher
+        {
+            return WithPublisher(typeof(TPublisher), ServiceLifetime.Transient);
+        }
+        
         public RabbitMqConfigurator WithPublisher<TPublisher>(ServiceLifetime serviceLifetime)
-            where TPublisher: IRabbitMqConsumer
+            where TPublisher: IRabbitMqPublisher
         {
             return WithPublisher(typeof(TPublisher), serviceLifetime);
         }
+        
 
+        public RabbitMqConfigurator WithSingletonConsumer<TConsumer>()
+            where TConsumer: IRabbitMqConsumer
+        {
+            return WithConsumer(typeof(TConsumer), ServiceLifetime.Singleton);
+        }
+        
+        public RabbitMqConfigurator WithScopedConsumer<TConsumer>()
+            where TConsumer: IRabbitMqConsumer
+        {
+            return WithConsumer(typeof(TConsumer), ServiceLifetime.Scoped);
+        }
+        
+        public RabbitMqConfigurator WithTransientConsumer<TConsumer>()
+            where TConsumer: IRabbitMqConsumer
+        {
+            return WithConsumer(typeof(TConsumer), ServiceLifetime.Transient);
+        }
+        
         public RabbitMqConfigurator WithConsumer<TConsumer>(ServiceLifetime serviceLifetime)
             where TConsumer: IRabbitMqConsumer
         {
