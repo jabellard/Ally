@@ -4,6 +4,35 @@
     <e p="$USER_HOME$/.Rider2019.3/system/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/.Rider2019.3/system/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_Ally.-1472697469.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p="Ally.Logging.Http" t="IncludeRecursive">
+        <e p="Abstractions" t="Include">
+          <e p="IRequestLog.cs" t="Include" />
+          <e p="IRequestLogger.cs" t="Include" />
+        </e>
+        <e p="Ally.Logging.Http.csproj" t="IncludeRecursive" />
+        <e p="Extensions" t="Include">
+          <e p="ApplicationBuilderExtensions.cs" t="Include" />
+          <e p="ServiceCollectionExtensions.cs" t="Include" />
+        </e>
+        <e p="Options" t="Include">
+          <e p="RequestLoggingOptions.cs" t="Include" />
+        </e>
+        <e p="RequestLog.cs" t="Include" />
+        <e p="RequestLoggers" t="Include">
+          <e p="NullRequestLogger.cs" t="Include" />
+          <e p="RequestLogger.cs" t="Include" />
+        </e>
+        <e p="RequestLoggingConfigurator.cs" t="Include" />
+        <e p="RequestLoggingMiddleware.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="Ally.Logging.Http.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
       <e p="Ally.RabbitMQ" t="IncludeRecursive">
         <e p="Abstractions" t="Include">
           <e p="IRabbitMqConnection.cs" t="Include" />
@@ -33,6 +62,8 @@
         </e>
       </e>
       <e p="Ally.sln" t="IncludeFlat" />
+      <e p="Logging" t="Include" />
+      <e p="RabbitMQ" t="Include" />
       <e p="packages" t="ExcludeRecursive" />
     </e>
   </component>

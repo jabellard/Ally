@@ -11,12 +11,12 @@ namespace Ally.RabbitMQ
 {
     public class RabbitMqConfigurator
     {
-        public IServiceCollection Services { get; private set; }
+        public IServiceCollection Services { get; }
         private readonly List<RabbitMqConnectionOptions> _connectionOptionsCollection;
         private readonly List<Tuple<Action<ConnectionFactory>, Func<RabbitMqConnectionOptions, bool>>>
             _connectionOptionsConfigurations;
 
-        public RabbitMqConfigurator(IServiceCollection services)
+        internal RabbitMqConfigurator(IServiceCollection services)
         {
             Services = services;
             _connectionOptionsCollection = new List<RabbitMqConnectionOptions>();
@@ -67,19 +67,19 @@ namespace Ally.RabbitMQ
         public RabbitMqConfigurator WithSingletonPublisher<TPublisher>()
             where TPublisher: IRabbitMqPublisher
         {
-            return WithPublisher(typeof(TPublisher), ServiceLifetime.Singleton);
+            return WithPublisher<TPublisher>(ServiceLifetime.Singleton);
         }
         
         public RabbitMqConfigurator WithScopedPublisher<TPublisher>()
             where TPublisher: IRabbitMqPublisher
         {
-            return WithPublisher(typeof(TPublisher), ServiceLifetime.Scoped);
+            return WithPublisher<TPublisher>(ServiceLifetime.Scoped);
         }
         
         public RabbitMqConfigurator WithTransientPublisher<TPublisher>()
             where TPublisher: IRabbitMqPublisher
         {
-            return WithPublisher(typeof(TPublisher), ServiceLifetime.Transient);
+            return WithPublisher<TPublisher>(ServiceLifetime.Transient);
         }
         
         public RabbitMqConfigurator WithPublisher<TPublisher>(ServiceLifetime serviceLifetime)
@@ -92,19 +92,19 @@ namespace Ally.RabbitMQ
         public RabbitMqConfigurator WithSingletonConsumer<TConsumer>()
             where TConsumer: IRabbitMqConsumer
         {
-            return WithConsumer(typeof(TConsumer), ServiceLifetime.Singleton);
+            return WithConsumer<TConsumer>(ServiceLifetime.Singleton);
         }
         
         public RabbitMqConfigurator WithScopedConsumer<TConsumer>()
             where TConsumer: IRabbitMqConsumer
         {
-            return WithConsumer(typeof(TConsumer), ServiceLifetime.Scoped);
+            return WithConsumer<TConsumer>(ServiceLifetime.Scoped);
         }
         
         public RabbitMqConfigurator WithTransientConsumer<TConsumer>()
             where TConsumer: IRabbitMqConsumer
         {
-            return WithConsumer(typeof(TConsumer), ServiceLifetime.Transient);
+            return WithConsumer<TConsumer>(ServiceLifetime.Transient);
         }
         
         public RabbitMqConfigurator WithConsumer<TConsumer>(ServiceLifetime serviceLifetime)
@@ -127,8 +127,9 @@ namespace Ally.RabbitMQ
 
 
 
-        public void Configure()
+        internal void Configure()
         {
+            Services.AddOptions();
             foreach (var connectionOptions in _connectionOptionsCollection)
             {
                 foreach (var (connectionConfigurator, connectionSelector) in _connectionOptionsConfigurations)
