@@ -4,6 +4,112 @@
     <e p="$USER_HOME$/.Rider2019.3/system/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/.Rider2019.3/system/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_Ally.-1472697469.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p="Ally.Core" t="IncludeRecursive">
+        <e p="Ally.Core.csproj" t="IncludeRecursive" />
+        <e p="Extensions" t="Include">
+          <e p="DictionaryExtensions.cs" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="Ally.Core.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Ally.Diagnostics.HealthChecks" t="IncludeRecursive">
+        <e p="Ally.Diagnostics.HealthChecks.csproj" t="IncludeRecursive" />
+        <e p="Extensions" t="Include">
+          <e p="ServiceCollectionExtensions.cs" t="Include" />
+        </e>
+        <e p="HealthCheckConfigurator.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="Ally.Diagnostics.HealthChecks.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Ally.Diagnostics.HealthChecks.RabbitMQ" t="IncludeRecursive">
+        <e p="Ally.Diagnostics.HealthChecks.RabbitMQ.csproj" t="IncludeRecursive" />
+        <e p="Extensions" t="Include">
+          <e p="HealthChecksConfiguratorExtensions.cs" t="Include" />
+        </e>
+        <e p="RabbitMqHealthCheck.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="Ally.Diagnostics.HealthChecks.RabbitMQ.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Ally.Diagnostics.HealthChecks.UI" t="IncludeRecursive">
+        <e p="Ally.Diagnostics.HealthChecks.UI.csproj" t="IncludeRecursive" />
+        <e p="Extensions" t="Include">
+          <e p="HealthChecksConfiguratorExtensions.cs" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="Ally.Diagnostics.HealthChecks.UI.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Ally.Hosting" t="IncludeRecursive">
+        <e p="Abstractions" t="Include">
+          <e p="IApplication.cs" t="Include" />
+          <e p="IApplicationConfigurator.cs" t="Include" />
+          <e p="IApplicationConfiguratorFactory.cs" t="Include" />
+          <e p="IApplicationHost.cs" t="Include" />
+          <e p="IApplicationHostBuilder.cs" t="Include" />
+          <e p="IApplicationStartup.cs" t="Include" />
+          <e p="IServiceConfigurator.cs" t="Include" />
+          <e p="ITerminalServiceConfigurator.cs" t="Include" />
+        </e>
+        <e p="Ally.Hosting.csproj" t="IncludeRecursive" />
+        <e p="ApplicationConfigurator.cs" t="Include" />
+        <e p="ApplicationConfiguratorFactory.cs" t="Include" />
+        <e p="ApplicationExecutor.cs" t="Include" />
+        <e p="ApplicationHostBuilder.cs" t="Include" />
+        <e p="Extensions" t="Include">
+          <e p="HostBuilderExtensions.cs" t="Include" />
+        </e>
+        <e p="Options" t="Include">
+          <e p="ApplicationExecutorOptions.cs" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="Ally.Hosting.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Ally.Http" t="IncludeRecursive">
+        <e p="Ally.Http.csproj" t="IncludeRecursive" />
+        <e p="Extensions" t="Include">
+          <e p="HttpClientExtensions.cs" t="Include" />
+        </e>
+        <e p="Options" t="Include">
+          <e p="HttpClientOptions.cs" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="Ally.Http.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
       <e p="Ally.Logging.Http" t="IncludeRecursive">
         <e p="Abstractions" t="Include">
           <e p="IRequestLog.cs" t="Include" />
@@ -29,6 +135,38 @@
           <e p="Debug" t="Include">
             <e p="netstandard2.1" t="Include">
               <e p="Ally.Logging.Http.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Ally.Quartz" t="IncludeRecursive">
+        <e p="Ally.Quartz.csproj" t="IncludeRecursive" />
+        <e p="Extensions" t="Include">
+          <e p="ApplicationBuilderExtensions.cs" t="Include" />
+          <e p="ServiceCollectionExtensions.cs" t="Include" />
+        </e>
+        <e p="JobFactory.cs" t="Include" />
+        <e p="QuartzConfigurator.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="Ally.Quartz.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Ally.Quartz.UI" t="IncludeRecursive">
+        <e p="Ally.Quartz.UI.csproj" t="IncludeRecursive" />
+        <e p="Extensions" t="Include">
+          <e p="ApplicationBuilderExtensions.cs" t="Include" />
+          <e p="QuartzConfiguratorExtensions.cs" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="Ally.Quartz.UI.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -61,9 +199,40 @@
           </e>
         </e>
       </e>
+      <e p="Ally.Testing.XUnit" t="IncludeRecursive">
+        <e p="Ally.Testing.XUnit.csproj" t="IncludeRecursive" />
+        <e p="IoCFixture.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="Ally.Testing.XUnit.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Ally.Threading" t="IncludeRecursive">
+        <e p="Ally.Threading.csproj" t="IncludeRecursive" />
+        <e p="LazyTask.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="Ally.Threading.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
       <e p="Ally.sln" t="IncludeFlat" />
+      <e p="Core" t="Include" />
+      <e p="Diagnostics" t="Include" />
+      <e p="Hosting" t="Include" />
+      <e p="Http" t="Include" />
       <e p="Logging" t="Include" />
+      <e p="Quartz" t="Include" />
       <e p="RabbitMQ" t="Include" />
+      <e p="Testing" t="Include" />
+      <e p="Threading" t="Include" />
       <e p="packages" t="ExcludeRecursive" />
     </e>
   </component>
