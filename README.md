@@ -1,1 +1,3 @@
 # Ally
+Application configuration extensions.
+
